@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3q4qiqceg4dy"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_b1rti"]
+[ext_resource type="Texture2D" uid="uid://m33v034kgegi" path="res://icon.svg" id="1_p8em4"]
+[ext_resource type="PackedScene" uid="uid://gm1dy6tbe0au" path="res://Agents/Gabriel/Gabriel.tscn" id="2_sfvlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynk4b"]
+size = Vector2(7, 189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mqk5"]
+size = Vector2(288, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8tgy"]
+size = Vector2(3, 68.25)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_b1rti")
+
+[node name="School" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="School"]
+position = Vector2(312.5, 104)
+scale = Vector2(0.0234376, 0.546875)
+texture = ExtResource("1_p8em4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="School"]
+position = Vector2(314.697, 230.43)
+scale = Vector2(0.0203551, 0.524536)
+texture = ExtResource("1_p8em4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="School"]
+position = Vector2(456.434, 263.9)
+scale = Vector2(2.21196, 0.0328051)
+texture = ExtResource("1_p8em4")
+
+[node name="Sprite2D5" type="Sprite2D" parent="School"]
+position = Vector2(592.962, 171.293)
+scale = Vector2(0.0474691, 1.4798)
+texture = ExtResource("1_p8em4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="School"]
+position = Vector2(452.5, 75)
+scale = Vector2(2.22656, 0.046875)
+texture = ExtResource("1_p8em4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="School"]
+position = Vector2(593, 173)
+shape = SubResource("RectangleShape2D_ynk4b")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="School"]
+position = Vector2(454, 74)
+shape = SubResource("RectangleShape2D_0mqk5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="School"]
+position = Vector2(457, 263.75)
+shape = SubResource("RectangleShape2D_0mqk5")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="School"]
+position = Vector2(315, 230)
+shape = SubResource("RectangleShape2D_e8tgy")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="School"]
+position = Vector2(312, 104)
+shape = SubResource("RectangleShape2D_e8tgy")
+
+[node name="Gabriel" parent="." instance=ExtResource("2_sfvlu")]
+position = Vector2(64, 64)
+scale = Vector2(0.18, 0.18)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Time:"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

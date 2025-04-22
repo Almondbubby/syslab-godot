@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://gm1dy6tbe0au"]
+
+[ext_resource type="PackedScene" uid="uid://bijdfi65yt02" path="res://Agents/base_agent.tscn" id="1_tk3sl"]
+[ext_resource type="Texture2D" uid="uid://m33v034kgegi" path="res://icon.svg" id="2_rhomi"]
+
+[node name="Base_Agent" instance=ExtResource("1_tk3sl")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rhomi")
